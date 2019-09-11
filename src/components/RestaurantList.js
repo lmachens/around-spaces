@@ -7,6 +7,8 @@ function RestaurantList() {
       <Restaurant />
       <Restaurant />
       <Restaurant />
+      <Restaurant />
+      <Restaurant />
     </section>
   );
 }

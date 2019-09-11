@@ -14,6 +14,7 @@
 
 body {
   font-size: 14px;
+  background: #faf9ee;
 }
 
 .App {
@@ -27,10 +28,12 @@ body {
 
 .header {
   z-index: 10;
-  height: 50px;
+  flex-shrink: 0;
+  height: 70px;
   width: 100%;
-  background: #a7d2cb;
+  background: #874c62;
   text-align: center;
+  box-shadow: 0 5px 5px rgba(87, 59, 69, 0.6);
 }
 
 h1 {
@@ -38,36 +41,47 @@ h1 {
 }
 
 .main {
-  width: 100%;
   flex-grow: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
+  padding-bottom: 25px;
 }
 
 .list__filter {
   height: 80px;
   width: 100%;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background: #faf9ee;
+  background: #f2d388;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  box-shadow: 0 5px 5px rgba(117, 117, 90, 0.6);
 }
 
 .filter {
   width: 20%;
-  height: 30px;
+  height: 25px;
   border: solid #874c62 3px;
   border-radius: 5px;
   text-align: center;
 }
+
+.filter:focus {
+  outline: none;
+}
+
 .list__restaurant {
   flex-grow: 1;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #faf9ee;
+  background: transparent;
 }
 
 .card {
@@ -75,4 +89,7 @@ h1 {
   height: 150px;
   margin-top: 20px;
   background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(128, 128, 128, 0.5);
 }
