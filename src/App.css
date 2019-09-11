@@ -1,33 +1,78 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+/* 
+#a7d2cb -clean
+#f2d388 -butter
+#c98474 -salmon
+#874c62 -eggplant
+#faf9ee -yellow
+*/
+
+body {
+  font-size: 14px;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+  z-index: 10;
+  height: 50px;
+  width: 100%;
+  background: #a7d2cb;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 {
+  font-size: 1.6em;
+}
+
+.main {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list__filter {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #faf9ee;
+}
+
+.filter {
+  width: 20%;
+  height: 30px;
+  border: solid #874c62 3px;
+  border-radius: 5px;
+  text-align: center;
+}
+.list__restaurant {
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #faf9ee;
+}
+
+.card {
+  width: 80%;
+  height: 150px;
+  margin-top: 20px;
+  background: white;
 }
