@@ -6,7 +6,7 @@ function FilterList() {
   return (
     <section className="list__filter">
       {filters.map(filter => {
-        return <Filter key={filter.name} />;
+        return <Filter key={filter.name} filter={filter} />;
       })}
     </section>
   );
