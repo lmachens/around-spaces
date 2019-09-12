@@ -3,9 +3,13 @@ import Restaurant from "./Restaurant";
 
 function RestaurantList() {
   return (
-    <div>
-      RestaurantList <Restaurant />
-    </div>
+    <section className="list__restaurant">
+      <Restaurant />
+      <Restaurant />
+      <Restaurant />
+      <Restaurant />
+      <Restaurant />
+    </section>
   );
 }
 

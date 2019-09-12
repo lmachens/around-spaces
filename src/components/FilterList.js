@@ -3,9 +3,11 @@ import Filter from "./Filter";
 
 function FilterList() {
   return (
-    <div>
-      FilterList <Filter />
-    </div>
+    <section className="list__filter">
+      <Filter />
+      <Filter />
+      <Filter />
+    </section>
   );
 }
 
