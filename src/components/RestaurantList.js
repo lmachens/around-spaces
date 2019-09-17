@@ -5,29 +5,38 @@ import { restaurants } from "../api/restaurants";
 function RestaurantList({ selectedFilters }) {
   console.log(selectedFilters);
   const filteredRestaurants = restaurants.filter(restaurant => {
-    let keepRestaurant = true;
     if (selectedFilters.distance) {
       switch (selectedFilters.distance) {
         case "< 2min":
-          keepRestaurant = restaurant.distance < 2;
+          if (restaurant.distance >= 2) {
+            return false;
+          }
           break;
         case "< 5min":
-          keepRestaurant = restaurant.distance < 5;
+          if (restaurant.distance >= 5) {
+            return false;
+          }
           break;
         case "< 10min":
-          keepRestaurant = restaurant.distance < 10;
+          if (restaurant.distance >= 10) {
+            return false;
+          }
           break;
         default:
           break;
       }
     }
-    if (keepRestaurant && selectedFilters.rating) {
-      keepRestaurant = restaurant.rating >= selectedFilters.rating.length;
+    if (selectedFilters.rating) {
+      if (restaurant.rating < selectedFilters.rating.length) {
+        return false;
+      }
     }
-    if (keepRestaurant && selectedFilters.category) {
-      keepRestaurant = restaurant.categories.includes(selectedFilters.category);
+    if (selectedFilters.category) {
+      if (!restaurant.categories.includes(selectedFilters.category)) {
+        return false;
+      }
     }
-    return keepRestaurant;
+    return true;
   });
   return (
     <section className="list__restaurant">
