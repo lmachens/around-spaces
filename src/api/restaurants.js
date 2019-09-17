@@ -5,7 +5,7 @@ export const restaurants = [
     title: "Bento Box",
     categories: ["japanese", "sushi"],
     distance: 1,
-    rating: 3.2,
+    rating: 3,
     description: "Long waiting time"
   },
   {
