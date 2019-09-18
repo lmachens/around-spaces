@@ -1,15 +1,16 @@
 import React from "react";
 
-function Filter(props) {
+function Filter({ onChange, filter, selectedValue }) {
   return (
     <select
       className="filter"
       onChange={event => {
-        props.onChange(props.filter.name, event.target.value);
+        onChange(filter.name, event.target.value);
       }}
+      value={selectedValue}
     >
-      <option value="">Select {props.filter.name}</option>
-      {props.filter.options.map(option => {
+      <option value="">Select {filter.name}</option>
+      {filter.options.map(option => {
         return (
           <option key={option} value={option}>
             {option}

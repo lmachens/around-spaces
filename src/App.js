@@ -5,7 +5,11 @@ import RestaurantList from "./components/RestaurantList";
 import Header from "./components/Header";
 
 function App() {
-  const [filters, setFilters] = React.useState({});
+  const [filters, setFilters] = React.useState({
+    distance: "< 2min",
+    rating: "***",
+    category: "salad"
+  });
 
   function handleFilterChange(name, value) {
     // Create a copy of filters object
@@ -22,7 +26,10 @@ function App() {
     <div className="App">
       <Header />
       <main className="main">
-        <FilterList onFilterChange={handleFilterChange} />
+        <FilterList
+          selectedFilters={filters}
+          onFilterChange={handleFilterChange}
+        />
         <RestaurantList selectedFilters={filters} />
       </main>
     </div>
