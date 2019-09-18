@@ -1,14 +1,29 @@
 import React from "react";
+import styled from "styled-components";
+
+const Card = styled.div`
+  width: 80%;
+  margin-top: 20px;
+  background: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(128, 128, 128, 0.5);
+`;
+
+const CardImg = styled.img`
+  height: 100px;
+`;
+
+const CardCategory = styled.span`
+  margin-right: 4px;
+  font-weight: bold;
+`;
 
 function Restaurant(props) {
   return (
-    <div className="card">
+    <Card>
       {props.restaurant.title}
-      <img
-        src={props.restaurant.imgSrc}
-        className="card__img"
-        alt={props.restaurant.title}
-      />
+      <CardImg src={props.restaurant.imgSrc} alt={props.restaurant.title} />
       <p>{props.restaurant.description}</p>
       <p>
         Distance: {props.restaurant.distance} minutes
@@ -17,14 +32,10 @@ function Restaurant(props) {
         <br />
         Categories:{" "}
         {props.restaurant.categories.map(category => {
-          return (
-            <span className="card__category" key={category}>
-              {category}
-            </span>
-          );
+          return <CardCategory key={category}>{category}</CardCategory>;
         })}
       </p>
-    </div>
+    </Card>
   );
 }
 

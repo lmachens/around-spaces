@@ -1,8 +1,28 @@
 import React from "react";
-import "./App.css";
 import FilterList from "./components/FilterList";
 import RestaurantList from "./components/RestaurantList";
-import Header from "./components/Header";
+import Title from "./components/Title";
+import styled from "styled-components";
+import GlobalStyles from "./GlobalStyles";
+
+const Container = styled.div`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Main = styled.main`
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  padding-bottom: 25px;
+`;
 
 function App() {
   const [filters, setFilters] = React.useState({
@@ -23,16 +43,17 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header />
-      <main className="main">
+    <Container>
+      <GlobalStyles />
+      <Title />
+      <Main>
         <FilterList
           selectedFilters={filters}
           onFilterChange={handleFilterChange}
         />
         <RestaurantList selectedFilters={filters} />
-      </main>
-    </div>
+      </Main>
+    </Container>
   );
 }
 
