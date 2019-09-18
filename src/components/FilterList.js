@@ -2,7 +2,7 @@ import React from "react";
 import Filter from "./Filter";
 import { filters } from "../api/filters";
 
-function FilterList(props) {
+function FilterList({ onFilterChange, selectedFilters }) {
   return (
     <section className="list__filter">
       {filters.map(filter => {
@@ -10,7 +10,8 @@ function FilterList(props) {
           <Filter
             key={filter.name}
             filter={filter}
-            onChange={props.onFilterChange}
+            onChange={onFilterChange}
+            selectedValue={selectedFilters[filter.name]}
           />
         );
       })}
