@@ -4,7 +4,7 @@ import styled from "styled-components";
 const Card = styled.div`
   width: 80%;
   margin-top: 20px;
-  background: ${props => (props.odd ? "#ddd" : "#fff")};
+  background: ${props => (props.odd ? "#b2929f" : "#feeec8")};
   padding: 15px;
   border-radius: 15px;
   box-shadow: 0 5px 10px rgba(128, 128, 128, 0.5);
