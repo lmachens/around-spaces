@@ -1,8 +1,20 @@
 import React from "react";
+import styled from "styled-components";
+
+const Dropdown = styled.select`
+  width: 20%;
+  height: 25px;
+  border: solid #874c62 3px;
+  border-radius: 5px;
+  text-align: center;
+  &:focus {
+    outline: none;
+  }
+`;
 
 function Filter({ onChange, filter, selectedValue }) {
   return (
-    <select
+    <Dropdown
       className="filter"
       onChange={event => {
         onChange(filter.name, event.target.value);
@@ -17,7 +29,7 @@ function Filter({ onChange, filter, selectedValue }) {
           </option>
         );
       })}
-    </select>
+    </Dropdown>
   );
 }
 
