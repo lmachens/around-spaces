@@ -1,12 +1,11 @@
 import React from "react";
-import "./App.css";
 import FilterList from "./components/FilterList";
 import RestaurantList from "./components/RestaurantList";
 import Title from "./components/Title";
 import styled from "styled-components";
 import GlobalStyles from "./GlobalStyles";
 
-const App = styled.div`
+const Container = styled.div`
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -44,7 +43,7 @@ function App() {
   }
 
   return (
-    <App>
+    <Container>
       <GlobalStyles />
       <Title />
       <Main>
@@ -54,7 +53,7 @@ function App() {
         />
         <RestaurantList selectedFilters={filters} />
       </Main>
-    </App>
+    </Container>
   );
 }
 
