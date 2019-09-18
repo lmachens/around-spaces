@@ -8,9 +8,13 @@ function Filter(props) {
         props.onChange(props.filter.name, event.target.value);
       }}
     >
-      <option>{props.filter.name}</option>
+      <option value="">Select {props.filter.name}</option>
       {props.filter.options.map(option => {
-        return <option key={option}>{option}</option>;
+        return (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        );
       })}
     </select>
   );
