@@ -4,7 +4,9 @@ import styled from "styled-components";
 const Dropdown = styled.select`
   width: 20%;
   height: 25px;
-  border: solid #874c62 3px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: ${props => (props.value ? "#008c4e" : "#874c62")};
   border-radius: 5px;
   text-align: center;
   &:focus {
@@ -15,7 +17,6 @@ const Dropdown = styled.select`
 function Filter({ onChange, filter, selectedValue }) {
   return (
     <Dropdown
-      className="filter"
       onChange={event => {
         onChange(filter.name, event.target.value);
       }}

@@ -50,8 +50,14 @@ function RestaurantList({ selectedFilters }) {
   });
   return (
     <List>
-      {filteredRestaurants.map(restaurant => {
-        return <Restaurant key={restaurant.title} restaurant={restaurant} />;
+      {filteredRestaurants.map((restaurant, index) => {
+        return (
+          <Restaurant
+            key={restaurant.title}
+            odd={index % 2}
+            restaurant={restaurant}
+          />
+        );
       })}
     </List>
   );

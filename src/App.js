@@ -25,11 +25,7 @@ const Main = styled.main`
 `;
 
 function App() {
-  const [filters, setFilters] = React.useState({
-    distance: "< 2min",
-    rating: "***",
-    category: "salad"
-  });
+  const [filters, setFilters] = React.useState({});
 
   function handleFilterChange(name, value) {
     // Create a copy of filters object
