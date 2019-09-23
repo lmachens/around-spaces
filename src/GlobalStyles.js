@@ -8,8 +8,10 @@ export default createGlobalStyle`
 }
 
 body {
-  font-size: 14px;
+  font-size: 16px;
+  margin: 0;
   background: #faf9ee;
+  font-family: 'Roboto', sans-serif;
 }
 
 
