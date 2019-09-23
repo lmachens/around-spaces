@@ -54,7 +54,7 @@ function RestaurantList({ selectedFilters }) {
         return (
           <Restaurant
             key={restaurant.title}
-            odd={index % 2}
+            odd={!!(index % 2)}
             restaurant={restaurant}
           />
         );
