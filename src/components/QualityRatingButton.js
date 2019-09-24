@@ -10,7 +10,7 @@ const RatingButton = styled.button`
   height: 38px;
   width: 38px;
   cursor: pointer;
-  background: transparent;
+  background: none;
 `;
 
 export default function QualityRatingButton({ active, className }) {
