@@ -10,9 +10,9 @@ const Container = styled.div`
   border-radius: 10px;
   display: ${props => (props.show ? "flex" : "none")};
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
   padding: 20px 10px 60px 10px;
-  max-width: calc(100% - 52px);
+  width: calc(100% - 52px);
   margin: 40px 20px;
   position: relative;
 `;
