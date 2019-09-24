@@ -14,7 +14,7 @@ const Main = styled.main`
   padding-bottom: 25px;
 `;
 
-export default function Home({ history, location }) {
+export default function Home({ history, location, toggleTheme }) {
   const params = new URLSearchParams(location.search);
   const [filters, setFilters] = React.useState({
     category: params.get("category") || "",
@@ -38,7 +38,7 @@ export default function Home({ history, location }) {
 
   return (
     <>
-      <Title />
+      <Title toggleTheme={toggleTheme} />
       <Main>
         <FilterList
           selectedFilters={filters}
