@@ -5,7 +5,8 @@ const defaultTheme = {
   primary: "#547FB3",
   secondary: "#fff",
   highlight: "#547FB3",
-  text: "#000"
+  text: "#000",
+  contrastText: "#fff"
 };
 
 export default defaultTheme;

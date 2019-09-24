@@ -3,10 +3,11 @@ import TextInput from "../components/TextInput";
 import Badge from "../components/Badge";
 import Price from "../components/Price";
 import QualityRating from "../components/QualityRating";
+import Modal from "../components/Modal";
 
 export default function New() {
   return (
-    <div>
+    <Modal>
       <div>
         Name:
         <TextInput />
@@ -25,6 +26,6 @@ export default function New() {
         Rating:
         <QualityRating rating={0} />
       </div>
-    </div>
+    </Modal>
   );
 }
