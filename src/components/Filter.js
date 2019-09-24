@@ -2,13 +2,17 @@ import React from "react";
 import styled from "styled-components";
 
 const Dropdown = styled.select`
-  width: 20%;
+  width: 25%;
   height: 25px;
   border-style: solid;
-  border-width: 3px;
-  border-color: ${props => (props.value ? "#008c4e" : "#874c62")};
+  border-width: 2px;
+  border-color: ${props =>
+    props.value ? props.theme.highlight : props.theme.secondary};
   border-radius: 5px;
+  color: ${props => props.theme.text};
+  background: ${props => props.theme.secondary};
   text-align: center;
+  box-shadow: 0 5px 10px ${props => props.theme.shadow};
   &:focus {
     outline: none;
   }

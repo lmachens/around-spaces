@@ -1,20 +1,24 @@
 import React from "react";
 import styled from "styled-components";
+import DarkmodeToggleButton from "./DarkmodeToggleButton";
 
 const Header = styled.header`
   z-index: 10;
   flex-shrink: 0;
   height: 70px;
   width: 100%;
-  background: #874c62;
+  color: #fff;
+  background: ${props => props.theme.main};
   text-align: center;
-  box-shadow: 0 5px 5px rgba(87, 59, 69, 0.6);
+  box-shadow: 0 5px 5px ${props => props.theme.shadow};
+  position: relative;
 `;
 
-function Title() {
+function Title({ toggleTheme }) {
   return (
     <Header>
       <h1>around spaces</h1>
+      <DarkmodeToggleButton toggleTheme={toggleTheme} />
     </Header>
   );
 }
