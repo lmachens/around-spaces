@@ -6,18 +6,32 @@ import QualityRating from "../components/QualityRating";
 import Modal from "../components/Modal";
 import ModalTitle from "../components/ModalTitle";
 import ModalSection from "../components/ModalSection";
+import Add from "../icons/Add";
+import styled from "styled-components";
+import { getCategoryOptions } from "../api/filters";
+import Flex from "../components/Flex";
+
+const AddCircleIcon = styled(Add)`
+  width: 40px;
+  height: 40px;
+  fill: ${props => props.theme.primary};
+  border: 1.5px solid ${props => props.theme.primary};
+  border-radius: 50%;
+`;
 
 export default function New() {
   return (
     <Modal>
+      <AddCircleIcon />
       <ModalTitle>Add Restaurant</ModalTitle>
       <ModalSection>Name</ModalSection>
-      <TextInput />
+      <TextInput placeholder="Enter restaurant name" />
       <ModalSection>Categories</ModalSection>
-
-      <Badge>Sushi</Badge>
-      <Badge>Wraps</Badge>
-      <Badge>Burritos</Badge>
+      <Flex>
+        {getCategoryOptions().map(option => (
+          <Badge key={option}>{option}</Badge>
+        ))}
+      </Flex>
       <ModalSection>Price</ModalSection>
       <Price value={0} />
       <ModalSection>Rating</ModalSection>

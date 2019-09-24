@@ -12,3 +12,7 @@ export const filters = [
     options: ["*****", "****", "***", "**", "*"]
   }
 ];
+
+export function getCategoryOptions() {
+  return filters.find(filter => filter.name === "category").options;
+}

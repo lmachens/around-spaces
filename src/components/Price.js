@@ -2,6 +2,7 @@ import React from "react";
 import Euro from "../icons/Euro";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Flex from "./Flex";
 
 const EuroIcon = styled(Euro)`
   fill: ${props => (props.active ? "#547FB3" : "#BABABA")};
@@ -9,17 +10,13 @@ const EuroIcon = styled(Euro)`
   height: 24px;
 `;
 
-const Container = styled.div`
-  display: flex;
-`;
-
 export default function Price({ value }) {
   return (
-    <Container>
+    <Flex>
       <EuroIcon active={value > 0} />
       <EuroIcon active={value > 1} />
       <EuroIcon active={value > 2} />
-    </Container>
+    </Flex>
   );
 }
 Price.propTypes = {
