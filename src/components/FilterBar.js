@@ -1,37 +1,74 @@
 import React from "react";
 import styled from "styled-components";
-import IconButton from "./IconButton";
+import FilterBarButton from "./FilterBarButton";
 import Walk from "../icons/Walk";
 import Favorite from "../icons/Favorite";
 import Euro from "../icons/Euro";
 import Food from "../icons/Food";
 import PropTypes from "prop-types";
+import Modal from "./Modal";
+import { getFilterByName } from "../api/filters";
+import Filter from "./Filter";
 
-const FilterBarContainer = styled.nav`
+const Container = styled.div`
   display: flex;
-  width: 415px;
-  justify-content: space-around;
+  justify-content: space-between;
 `;
 
-export default function FilterBar({ selectedFilters }) {
+export default function FilterBar({
+  className,
+  selectedFilters,
+  onFilterChange
+}) {
+  const [focusedFilterName, setFocusedFilterName] = React.useState(null);
+  const focusedFilter = focusedFilterName && getFilterByName(focusedFilterName);
+
   return (
-    <FilterBarContainer>
-      <IconButton active={!!selectedFilters.distance}>
+    <Container className={className}>
+      <FilterBarButton
+        active={!!selectedFilters.distance}
+        onClick={() => setFocusedFilterName("distance")}
+      >
         <Walk />
-      </IconButton>
-      <IconButton active={!!selectedFilters.price}>
+      </FilterBarButton>
+      <FilterBarButton
+        active={!!selectedFilters.price}
+        onClick={() => setFocusedFilterName("price")}
+      >
         <Euro />
-      </IconButton>
-      <IconButton active={!!selectedFilters.category}>
+      </FilterBarButton>
+      <FilterBarButton
+        active={!!selectedFilters.category}
+        onClick={() => setFocusedFilterName("category")}
+      >
         <Food />
-      </IconButton>
-      <IconButton active={!!selectedFilters.rating}>
+      </FilterBarButton>
+      <FilterBarButton
+        active={!!selectedFilters.rating}
+        onClick={() => setFocusedFilterName("rating")}
+      >
         <Favorite />
-      </IconButton>
-    </FilterBarContainer>
+      </FilterBarButton>
+      <Modal
+        show={!!focusedFilter}
+        onClose={() => setFocusedFilterName(null)}
+        onAccept={() => setFocusedFilterName(null)}
+      >
+        {focusedFilter && (
+          <Filter
+            key={focusedFilter.name}
+            filter={focusedFilter}
+            onChange={onFilterChange}
+            selectedValue={selectedFilters[focusedFilter.name]}
+          />
+        )}
+      </Modal>
+    </Container>
   );
 }
 
 FilterBar.propTypes = {
-  selectedFilters: PropTypes.object.isRequired
+  className: PropTypes.string,
+  selectedFilters: PropTypes.object.isRequired,
+  onFilterChange: PropTypes.func
 };

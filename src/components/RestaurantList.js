@@ -13,7 +13,6 @@ const List = styled.section`
 `;
 
 function RestaurantList({ selectedFilters }) {
-  console.log(selectedFilters);
   const filteredRestaurants = restaurants.filter(restaurant => {
     if (selectedFilters.distance) {
       switch (selectedFilters.distance) {

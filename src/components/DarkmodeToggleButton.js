@@ -10,8 +10,8 @@ const ToggleButton = styled.span`
   font-size: 20px;
   cursor: pointer;
   position: absolute;
-  right: 5px;
-  top: 22px;
+  right: 10px;
+  top: 6px;
   &:focus {
     outline: none;
   }
@@ -29,6 +29,6 @@ function DarkmodeToggleButton({ toggleTheme }) {
 
 export default DarkmodeToggleButton;
 
-ToggleButton.propTypes = {
+DarkmodeToggleButton.propTypes = {
   toggleTheme: PropTypes.func.isRequired
 };

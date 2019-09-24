@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const Dropdown = styled.select`
-  width: 25%;
-  height: 25px;
   border-style: solid;
   border-width: 2px;
   border-color: ${props =>

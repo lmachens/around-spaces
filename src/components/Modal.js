@@ -14,7 +14,10 @@ const Container = styled.div`
   padding: 20px 10px 60px 10px;
   width: calc(100% - 52px);
   margin: 40px 20px;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
 `;
 
 const ModalButton = styled.button`
@@ -41,23 +44,44 @@ const AcceptButton = styled(ModalButton)`
   bottom: -22px;
 `;
 
-export default function Modal({ children, show = true, onClose, onAccept }) {
+const Backdrop = styled.div`
+  display: ${props => (props.show ? "block" : "none")};
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #6f6f6fde;
+  z-index: 10;
+`;
+
+export default function Modal({
+  children,
+  show = true,
+  hideBackdrop,
+  onClose,
+  onAccept
+}) {
   return (
-    <Container show={show}>
-      {children}
-      <CloseButton onClick={onClose}>
-        <Close />
-      </CloseButton>
-      <AcceptButton onClick={onAccept}>
-        <Check />
-      </AcceptButton>
-    </Container>
+    <>
+      <Container show={show}>
+        {children}
+        <CloseButton onClick={onClose}>
+          <Close />
+        </CloseButton>
+        <AcceptButton onClick={onAccept}>
+          <Check />
+        </AcceptButton>
+      </Container>
+      {!hideBackdrop && <Backdrop onClick={onClose} show={show} />}
+    </>
   );
 }
 
 Modal.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
   show: PropTypes.bool,
+  hideBackdrop: PropTypes.bool,
   onShow: PropTypes.func,
   onAccept: PropTypes.func
 };
