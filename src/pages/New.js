@@ -21,7 +21,7 @@ const AddCircleIcon = styled(Add)`
 
 export default function New() {
   return (
-    <Modal>
+    <Modal hideBackdrop>
       <AddCircleIcon />
       <ModalTitle>Add Restaurant</ModalTitle>
       <ModalSection>Name</ModalSection>

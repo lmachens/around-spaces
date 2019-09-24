@@ -1,17 +1,21 @@
 import React from "react";
-import FilterList from "../components/FilterList";
+import FilterBar from "../components/FilterBar";
 import RestaurantList from "../components/RestaurantList";
 import Title from "../components/Title";
 import styled from "styled-components";
 
 const Main = styled.main`
-  flex-grow: 1;
-  width: 100%;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow: auto;
-  padding-bottom: 25px;
+  width: 100%;
+`;
+
+const StyledFilterBar = styled(FilterBar)`
+  width: 100%;
+  padding: 20px 10px;
 `;
 
 export default function Home({ history, location, toggleTheme }) {
@@ -39,11 +43,11 @@ export default function Home({ history, location, toggleTheme }) {
   return (
     <>
       <Title toggleTheme={toggleTheme} />
+      <StyledFilterBar
+        selectedFilters={filters}
+        onFilterChange={handleFilterChange}
+      />
       <Main>
-        <FilterList
-          selectedFilters={filters}
-          onFilterChange={handleFilterChange}
-        />
         <RestaurantList selectedFilters={filters} />
       </Main>
     </>
