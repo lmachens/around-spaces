@@ -2,10 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import QualityRatingButton from "./QualityRatingButton";
 import PropTypes from "prop-types";
-
-const QualityRatingContainer = styled.div`
-  display: flex;
-`;
+import Flex from "./Flex";
 
 const QualityRatingButtonStyled = styled(QualityRatingButton)`
   margin: 4px;
@@ -13,13 +10,13 @@ const QualityRatingButtonStyled = styled(QualityRatingButton)`
 
 export default function QualityRating({ rating }) {
   return (
-    <QualityRatingContainer>
+    <Flex>
       <QualityRatingButtonStyled active={rating >= 1} />
       <QualityRatingButtonStyled active={rating >= 2} />
       <QualityRatingButtonStyled active={rating >= 3} />
       <QualityRatingButtonStyled active={rating >= 4} />
       <QualityRatingButtonStyled active={rating >= 5} />
-    </QualityRatingContainer>
+    </Flex>
   );
 }
 
