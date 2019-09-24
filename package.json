@@ -11,7 +11,7 @@
     "styled-components": "^4.3.2"
   },
   "scripts": {
-    "start": "PORT=3333 react-scripts start --no-cache",
+    "start": "react-scripts start --no-cache",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
