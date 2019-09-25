@@ -40,6 +40,7 @@ export default function New() {
       <ModalSection>Name</ModalSection>
       <TextInput
         placeholder="Enter restaurant name"
+        value={title}
         onChange={event => setTitle(event.target.value)}
       />
       <ModalSection>Categories</ModalSection>
