@@ -1,29 +1,43 @@
-export const restaurants = [
-  {
-    imgSrc:
-      "https://static.lieferando.de/images/chains/de/bento_box/logo_465x320.png",
-    title: "Bento Box",
-    categories: ["japanese", "sushi"],
-    distance: 1,
-    rating: 3,
-    description: "Long waiting time"
-  },
-  {
-    imgSrc:
-      "https://static.lieferando.de/images/restaurants/de/O000PR5/logo_465x320.png",
-    title: "Rich'n Greens",
-    categories: ["wraps", "bowls", "burritos"],
-    distance: 4,
-    rating: 4.8,
-    description: "Daily deal"
-  },
-  {
-    imgSrc:
-      "https://static.lieferando.de/images/restaurants/de/ONQ055P/logo_465x320.png",
-    title: "Supasalad",
-    categories: ["salad", "wraps", "bowl"],
-    distance: 1,
-    rating: 4.1,
-    description: "Eat fresh"
-  }
-];
+export function getRestaurants() {
+  return fetch("http://localhost:3000/restaurants").then(response =>
+    response.json()
+  );
+}
+
+export async function getRestaurantsByFilters(selectedFilters) {
+  const restaurants = await getRestaurants();
+  return restaurants.filter(restaurant => {
+    if (selectedFilters.distance) {
+      switch (selectedFilters.distance) {
+        case "< 2min":
+          if (restaurant.distance >= 2) {
+            return false;
+          }
+          break;
+        case "< 5min":
+          if (restaurant.distance >= 5) {
+            return false;
+          }
+          break;
+        case "< 10min":
+          if (restaurant.distance >= 10) {
+            return false;
+          }
+          break;
+        default:
+          break;
+      }
+    }
+    if (selectedFilters.rating) {
+      if (restaurant.rating < selectedFilters.rating.length) {
+        return false;
+      }
+    }
+    if (selectedFilters.category) {
+      if (!restaurant.categories.includes(selectedFilters.category)) {
+        return false;
+      }
+    }
+    return true;
+  });
+}
