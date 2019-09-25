@@ -1,6 +1,6 @@
 import React from "react";
 import Restaurant from "./Restaurant";
-import { restaurants } from "../api/restaurants";
+import { getRestaurantsByFilters } from "../api/restaurants";
 import styled from "styled-components";
 
 const List = styled.section`
@@ -13,40 +13,14 @@ const List = styled.section`
 `;
 
 function RestaurantList({ selectedFilters }) {
-  const filteredRestaurants = restaurants.filter(restaurant => {
-    if (selectedFilters.distance) {
-      switch (selectedFilters.distance) {
-        case "< 2min":
-          if (restaurant.distance >= 2) {
-            return false;
-          }
-          break;
-        case "< 5min":
-          if (restaurant.distance >= 5) {
-            return false;
-          }
-          break;
-        case "< 10min":
-          if (restaurant.distance >= 10) {
-            return false;
-          }
-          break;
-        default:
-          break;
-      }
-    }
-    if (selectedFilters.rating) {
-      if (restaurant.rating < selectedFilters.rating.length) {
-        return false;
-      }
-    }
-    if (selectedFilters.category) {
-      if (!restaurant.categories.includes(selectedFilters.category)) {
-        return false;
-      }
-    }
-    return true;
-  });
+  const [filteredRestaurants, setFilteredRestaurants] = React.useState([]);
+
+  React.useEffect(() => {
+    getRestaurantsByFilters(selectedFilters).then(newFilteredRestaurants => {
+      setFilteredRestaurants(newFilteredRestaurants);
+    });
+  }, [selectedFilters]);
+
   return (
     <List>
       {filteredRestaurants.map((restaurant, index) => {
