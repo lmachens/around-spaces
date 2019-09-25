@@ -25,20 +25,23 @@ export default function New() {
     postRestaurant({
       imgSrc:
         "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
-      title: "Pasta Pronto",
+      title: newRestaurant,
       categories: ["pizza", "salad", "pasta"],
       distance: 6,
       rating: 3.1,
       description: "Eat italian"
     });
   }
-
+  const [newRestaurant, setNewRestaurant] = React.useState({});
   return (
     <Modal hideBackdrop onAccept={handleAccept}>
       <AddCircleIcon />
       <ModalTitle>Add Restaurant</ModalTitle>
       <ModalSection>Name</ModalSection>
-      <TextInput placeholder="Enter restaurant name" />
+      <TextInput
+        onChange={event => setNewRestaurant(event.target.value)}
+        placeholder="Enter restaurant name"
+      />
       <ModalSection>Categories</ModalSection>
       <Flex>
         {getCategoryOptions().map(option => (
