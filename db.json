@@ -3,7 +3,7 @@
     {
       "id": "1",
       "imgSrc": "https://static.lieferando.de/images/chains/de/bento_box/logo_465x320.png",
-      "title": "Bobo Box",
+      "title": "Bento Box",
       "categories": ["japanese", "sushi"],
       "distance": 1,
       "rating": 3,
@@ -26,6 +26,42 @@
       "distance": 1,
       "rating": 4.1,
       "description": "Eat fresh"
+    },
+    {
+      "imgSrc": "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
+      "title": "Habib",
+      "categories": ["pizza", "salad", "pasta"],
+      "distance": 6,
+      "rating": 3.1,
+      "description": "Eat italian",
+      "id": "OIBRBO_"
+    },
+    {
+      "imgSrc": "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
+      "title": "Nanana",
+      "categories": ["pizza", "salad", "pasta"],
+      "distance": 6,
+      "rating": 3.1,
+      "description": "Eat italian",
+      "id": "vgwFlnG"
+    },
+    {
+      "imgSrc": "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
+      "title": "Hallo Pizza",
+      "categories": ["pizza", "salad", "pasta"],
+      "distance": 6,
+      "rating": 3.1,
+      "description": "Eat italian",
+      "id": "OeWkND5"
+    },
+    {
+      "imgSrc": "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
+      "title": "Habubu",
+      "categories": ["pizza", "salad", "pasta"],
+      "distance": 6,
+      "rating": 3.1,
+      "description": "Eat italian",
+      "id": "PQrWIFZ"
     }
   ]
 }

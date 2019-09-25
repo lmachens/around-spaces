@@ -25,17 +25,16 @@ export default function New() {
     postRestaurant({
       imgSrc:
         "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
-      title: titleValue,
+      title: title,
       categories: ["pizza", "salad", "pasta"],
       distance: 6,
       rating: 3.1,
       description: "Eat italian"
     });
   }
-  // const [category, setCategory] = useState("");
-  const [titleValue, setTitleValue] = useState("");
-  // const [ratings, setRatings] = useState("");
-  // const [prices, setPrices] = useState("");
+
+  const [title, setTitle] = useState("");
+
   return (
     <Modal hideBackdrop onAccept={handleAccept}>
       <AddCircleIcon />
@@ -43,8 +42,8 @@ export default function New() {
       <ModalSection>Name</ModalSection>
       <TextInput
         placeholder="Enter restaurant name"
-        value={titleValue}
-        onChange={event => setTitleValue(event.target.value)}
+        value={title}
+        onChange={event => setTitle(event.target.value)}
       />
       <ModalSection>Categories</ModalSection>
       <Flex>
@@ -53,17 +52,9 @@ export default function New() {
         ))}
       </Flex>
       <ModalSection>Price</ModalSection>
-      <Price
-        // value={prices}
-        price={0}
-        // onChange={event => setPrices(event.target.value)}
-      />
+      <Price price={0} />
       <ModalSection>Rating</ModalSection>
-      <QualityRating
-        // value={ratings}
-        rating={0}
-        // onChange={event => setRatings(event.target.value)}
-      />
+      <QualityRating rating={0} />
     </Modal>
   );
 }
