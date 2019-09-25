@@ -1,7 +1,12 @@
 export function getRestaurants() {
-  return fetch("http://localhost:3333/restaurants").then(response =>
-    response.json()
-  );
+  const promise = fetch("http://localhost:3333/restaurants");
+  return promise.then(response => response.json());
+}
+
+function waitTwoSeconds() {
+  return new Promise(resolve => {
+    setTimeout(resolve, 10);
+  });
 }
 
 function waitTwoSeconds() {
@@ -46,5 +51,15 @@ export async function getRestaurantsByFilters(selectedFilters) {
       }
     }
     return true;
+  });
+}
+
+export function postRestaurant(restaurant) {
+  return fetch("http://localhost:3333/restaurants", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(restaurant)
   });
 }
