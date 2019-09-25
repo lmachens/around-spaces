@@ -18,7 +18,7 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "fake-api": "json-server --watch db.json"
+    "fake-api": "json-server --watch db.json --port 3333"
   },
   "eslintConfig": {
     "extends": "react-app"
