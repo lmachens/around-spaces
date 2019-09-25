@@ -21,12 +21,14 @@ const AddCircleIcon = styled(Add)`
 `;
 
 export default function New() {
+  const [title, setTitle] = React.useState();
+
   function handleAccept() {
     postRestaurant({
       imgSrc:
         "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
-      title: "Pasta Pronto",
-      categories: ["pizza", "salad", "pasta"],
+      name: `${title}`,
+      categories: ["salad", "wraps"],
       distance: 6,
       rating: 3.1,
       description: "Eat italian"
@@ -38,7 +40,11 @@ export default function New() {
       <AddCircleIcon />
       <ModalTitle>Add Restaurant</ModalTitle>
       <ModalSection>Name</ModalSection>
-      <TextInput placeholder="Enter restaurant name" />
+      <TextInput
+        placeholder="Enter restaurant name"
+        value={title}
+        onChange={event => setTitle(event.target.value)}
+      />
       <ModalSection>Categories</ModalSection>
       <Flex>
         {getCategoryOptions().map(option => (
