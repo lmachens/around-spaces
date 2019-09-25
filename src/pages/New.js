@@ -10,6 +10,7 @@ import Add from "../icons/Add";
 import styled from "styled-components";
 import { getCategoryOptions } from "../api/filters";
 import Flex from "../components/Flex";
+import { postRestaurant } from "../api/restaurants";
 
 const AddCircleIcon = styled(Add)`
   width: 40px;
@@ -20,8 +21,20 @@ const AddCircleIcon = styled(Add)`
 `;
 
 export default function New() {
+  function handleAccept() {
+    postRestaurant({
+      imgSrc:
+        "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
+      title: "Pasta Pronto",
+      categories: ["pizza", "salad", "pasta"],
+      distance: 6,
+      rating: 3.1,
+      description: "Eat italian"
+    });
+  }
+
   return (
-    <Modal hideBackdrop>
+    <Modal hideBackdrop onAccept={handleAccept}>
       <AddCircleIcon />
       <ModalTitle>Add Restaurant</ModalTitle>
       <ModalSection>Name</ModalSection>
