@@ -25,22 +25,23 @@ export default function New() {
     postRestaurant({
       imgSrc:
         "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
-      title: input,
+      title: title,
       categories: ["pizza", "salad", "pasta"],
       distance: 6,
       rating: 3.1,
       description: "Eat italian"
     });
   }
-  const [input, setTitleInput] = useState();
+  const [title, setTitle] = useState();
   return (
     <Modal hideBackdrop onAccept={handleAccept}>
       <AddCircleIcon />
       <ModalTitle>Add Restaurant</ModalTitle>
       <ModalSection>Name</ModalSection>
       <TextInput
+        value={title}
         placeholder="Enter restaurant name"
-        onChange={event => setTitleInput(event.target.value)}
+        onChange={event => setTitle(event.target.value)}
       />
       <ModalSection>Categories</ModalSection>
       <Flex>
