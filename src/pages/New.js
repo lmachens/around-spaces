@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TextInput from "../components/TextInput";
 import Badge from "../components/Badge";
 import Price from "../components/Price";
@@ -25,20 +25,27 @@ export default function New() {
     postRestaurant({
       imgSrc:
         "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
-      title: "Pasta Pronto",
+      title: titleValue,
       categories: ["pizza", "salad", "pasta"],
       distance: 6,
       rating: 3.1,
       description: "Eat italian"
     });
   }
-
+  // const [category, setCategory] = useState("");
+  const [titleValue, setTitleValue] = useState("");
+  // const [ratings, setRatings] = useState("");
+  // const [prices, setPrices] = useState("");
   return (
     <Modal hideBackdrop onAccept={handleAccept}>
       <AddCircleIcon />
       <ModalTitle>Add Restaurant</ModalTitle>
       <ModalSection>Name</ModalSection>
-      <TextInput placeholder="Enter restaurant name" />
+      <TextInput
+        placeholder="Enter restaurant name"
+        value={titleValue}
+        onChange={event => setTitleValue(event.target.value)}
+      />
       <ModalSection>Categories</ModalSection>
       <Flex>
         {getCategoryOptions().map(option => (
@@ -46,9 +53,17 @@ export default function New() {
         ))}
       </Flex>
       <ModalSection>Price</ModalSection>
-      <Price value={0} />
+      <Price
+        // value={prices}
+        price={0}
+        // onChange={event => setPrices(event.target.value)}
+      />
       <ModalSection>Rating</ModalSection>
-      <QualityRating rating={0} />
+      <QualityRating
+        // value={ratings}
+        rating={0}
+        // onChange={event => setRatings(event.target.value)}
+      />
     </Modal>
   );
 }

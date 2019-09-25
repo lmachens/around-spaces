@@ -9,12 +9,6 @@ function waitTwoSeconds() {
   });
 }
 
-function waitTwoSeconds() {
-  return new Promise(resolve => {
-    setTimeout(resolve, 3000);
-  });
-}
-
 export async function getRestaurantsByFilters(selectedFilters) {
   await waitTwoSeconds();
   const restaurants = await getRestaurants();
