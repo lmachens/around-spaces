@@ -1,5 +1,5 @@
 export function getRestaurants() {
-  return fetch("http://localhost:3000/restaurants").then(response =>
+  return fetch("http://localhost:3333/restaurants").then(response =>
     response.json()
   );
 }
