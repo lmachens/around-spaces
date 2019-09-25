@@ -26,6 +26,51 @@
       "distance": 1,
       "rating": 4.1,
       "description": "Eat fresh"
+    },
+    {
+      "imgSrc": "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
+      "title": "Pasta Pronto",
+      "categories": ["pizza", "salad", "pasta"],
+      "distance": 6,
+      "rating": 3.1,
+      "description": "Eat italian",
+      "id": "EF_cDKA"
+    },
+    {
+      "imgSrc": "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
+      "title": "Basta Pasta",
+      "categories": ["pizza", "salad", "pasta"],
+      "distance": 6,
+      "rating": 3.1,
+      "description": "Eat italian",
+      "id": "Q-0dbcy"
+    },
+    {
+      "imgSrc": "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
+      "title": "Da Franco",
+      "categories": ["pizza", "salad", "pasta"],
+      "distance": 6,
+      "rating": 3.1,
+      "description": "Eat italian",
+      "id": "TcYQ0Ut"
+    },
+    {
+      "imgSrc": "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
+      "title": "hhhhhhhhh",
+      "categories": ["pizza", "salad", "pasta"],
+      "distance": 6,
+      "rating": 3.1,
+      "description": "Eat italian",
+      "id": "djB69sr"
+    },
+    {
+      "imgSrc": "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
+      "title": "Hola Brasserie",
+      "categories": ["pizza", "salad", "pasta"],
+      "distance": 6,
+      "rating": 3.1,
+      "description": "Eat italian",
+      "id": "yOyKvH4"
     }
   ]
 }

@@ -22,10 +22,10 @@ const AddCircleIcon = styled(Add)`
 
 export default function New() {
   function handleAccept() {
-    return postRestaurant({
+    postRestaurant({
       imgSrc:
         "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
-      title: `${Input}`,
+      title: input,
       categories: ["pizza", "salad", "pasta"],
       distance: 6,
       rating: 3.1,
@@ -33,7 +33,7 @@ export default function New() {
     });
   }
 
-  const [Input, getInput] = React.useState("");
+  const [input, getInput] = React.useState("");
 
   return (
     <Modal hideBackdrop onAccept={handleAccept}>
@@ -42,7 +42,7 @@ export default function New() {
       <ModalSection>Name</ModalSection>
       <TextInput
         placeholder="Enter restaurant name"
-        value={Input}
+        value={input}
         onChange={event => getInput(event.target.value)}
       />
       <ModalSection>Categories</ModalSection>
