@@ -2,7 +2,7 @@
   "restaurants": [
     {
       "imgSrc": "https://static.lieferando.de/images/chains/de/bento_box/logo_465x320.png",
-      "title": "Bento Box",
+      "title": "Bobo Box",
       "categories": ["japanese", "sushi"],
       "distance": 1,
       "rating": 3,
