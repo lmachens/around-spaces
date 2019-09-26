@@ -3,6 +3,7 @@ import FilterBar from "../components/FilterBar";
 import RestaurantList from "../components/RestaurantList";
 import Title from "../components/Title";
 import styled from "styled-components";
+import { postAnalytics } from "../api/analytics";
 
 const Main = styled.main`
   padding: 10px;
@@ -27,8 +28,11 @@ export default function Home({ history, location, toggleTheme }) {
   });
 
   function handleFilterChange(name, value) {
-    // Create a copy of filters object
-    const newFilters = { ...filters }; // or Object.assign({}, filters);
+    const newFilters = { ...filters };
+    postAnalytics({
+      selectedFilters: newFilters,
+      time: Date.now()
+    });
     params.delete(name);
     if (value) {
       newFilters[name] = value;
