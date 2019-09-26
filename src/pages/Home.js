@@ -26,13 +26,12 @@ export default function Home({ history, location, toggleTheme }) {
     distance: params.get("distance") || "",
     rating: params.get("rating") || ""
   });
+  React.useEffect(() => {
+    postAnalytics({ selectedFilters: filters, time: Date.now() });
+  }, [filters]);
 
   function handleFilterChange(name, value) {
     const newFilters = { ...filters };
-    postAnalytics({
-      selectedFilters: newFilters,
-      time: Date.now()
-    });
     params.delete(name);
     if (value) {
       newFilters[name] = value;
