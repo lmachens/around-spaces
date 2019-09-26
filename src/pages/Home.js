@@ -31,11 +31,8 @@ export default function Home({ history, location, toggleTheme }) {
     const newFilters = { ...filters };
     postAnalytics({
       selectedFilters: newFilters,
-
       time: Date.now()
     });
-    // Create a copy of filters object
-    // or Object.assign({}, filters);
     params.delete(name);
     if (value) {
       newFilters[name] = value;
