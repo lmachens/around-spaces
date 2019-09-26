@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import TextInput from "../components/TextInput";
 import Badge from "../components/Badge";
 import Price from "../components/Price";
@@ -25,22 +25,25 @@ export default function New() {
     postRestaurant({
       imgSrc:
         "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
-      title: newRestaurant,
+      title: title,
       categories: ["pizza", "salad", "pasta"],
       distance: 6,
       rating: 3.1,
       description: "Eat italian"
     });
   }
-  const [newRestaurant, setNewRestaurant] = React.useState({});
+
+  const [title, setTitle] = useState("");
+
   return (
     <Modal hideBackdrop onAccept={handleAccept}>
       <AddCircleIcon />
       <ModalTitle>Add Restaurant</ModalTitle>
       <ModalSection>Name</ModalSection>
       <TextInput
-        onChange={event => setNewRestaurant(event.target.value)}
         placeholder="Enter restaurant name"
+        value={title}
+        onChange={event => setTitle(event.target.value)}
       />
       <ModalSection>Categories</ModalSection>
       <Flex>
