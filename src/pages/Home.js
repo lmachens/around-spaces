@@ -29,10 +29,6 @@ export default function Home({ history, location, toggleTheme }) {
 
   function handleFilterChange(name, value) {
     const newFilters = { ...filters };
-    postAnalytics({
-      selectedFilters: newFilters,
-      time: Date.now()
-    });
     params.delete(name);
     if (value) {
       newFilters[name] = value;
@@ -42,6 +38,11 @@ export default function Home({ history, location, toggleTheme }) {
     }
     setFilters(newFilters);
     history.push(`${location.pathname}?${params.toString()}`);
+
+    postAnalytics({
+      selectedFilters: newFilters,
+      time: Date.now()
+    });
   }
 
   return (
