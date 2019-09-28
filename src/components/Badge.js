@@ -19,8 +19,23 @@ const BadgeDiv = styled.span`
   margin: 5px;
 `;
 
-export default function Badge({ active, children }) {
-  return <BadgeDiv active={active}>{children}</BadgeDiv>;
+export default function Badge({ children, onClick }) {
+  const [isActive, toggleActivity] = React.useState(false);
+
+  function toggle() {
+    isActive ? toggleActivity(false) : toggleActivity(true);
+  }
+  return (
+    <BadgeDiv
+      onClick={() => {
+        onClick(children);
+        toggle();
+      }}
+      active={isActive}
+    >
+      {children}
+    </BadgeDiv>
+  );
 }
 
 Badge.propTypes = {
