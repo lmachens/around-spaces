@@ -5,4 +5,4 @@ export default {
   title: "AddButton"
 };
 
-export const SubmitNewRestaurant = () => <AddButton></AddButton>;
+export const SubmitNewDefault = () => <AddButton></AddButton>;
