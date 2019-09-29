@@ -10,24 +10,17 @@ const EuroIcon = styled(Euro)`
   height: 24px;
 `;
 
-export default function Price({ value }) {
+export default function Price({ value, onClick, callbackFunction }) {
   return (
     <Flex>
       <EuroIcon
-        value={2}
-        kackpopel={event => console.log(event.target)}
+        value={1}
+        parentCallback={callbackFunction}
+        onClick={onClick}
         active={value > 0}
       />
-      <EuroIcon
-        value={2}
-        kackpopel={() => console.log("Hallo2")}
-        active={value > 1}
-      />
-      <EuroIcon
-        value={3}
-        kackpopel={() => console.log("Hallo3")}
-        active={value > 2}
-      />
+      <EuroIcon value={2} onClick={onClick} active={value > 1} />
+      <EuroIcon value={3} onClick={onClick} active={value > 2} />
     </Flex>
   );
 }
