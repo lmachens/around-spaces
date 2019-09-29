@@ -35,15 +35,15 @@ export default function New() {
 
   const [title, setTitle] = useState("");
   const [cuisines, setCuisines] = useState([]);
-  function handleCuisineClick(newCuisine) {
+  function handleCuisinesClick(newCuisine) {
     const cuisinesArr = [...cuisines];
     if (cuisinesArr.includes(newCuisine)) {
-      cuisines.splice(cuisines.indexOf(newCuisine), 1);
+      cuisinesArr.splice(cuisinesArr.indexOf(newCuisine), 1);
     } else {
-      cuisines.push(newCuisine);
+      cuisinesArr.push(newCuisine);
     }
-    console.log(cuisines);
-    setCuisines(cuisines);
+
+    setCuisines(cuisinesArr);
   }
 
   return (
@@ -58,15 +58,17 @@ export default function New() {
       />
       <ModalSection>Categories</ModalSection>
       <Flex>
-        {getCategoryOptions().map(option => (
-          <Badge
-            onClick={() => handleCuisineClick(option)}
-            key={option}
-            active={cuisines.includes(option)}
-          >
-            {option}
-          </Badge>
-        ))}
+        {getCategoryOptions().map(option => {
+          return (
+            <Badge
+              onClick={() => handleCuisinesClick(option)}
+              key={option}
+              active={cuisines.includes(option)}
+            >
+              {option}
+            </Badge>
+          );
+        })}
       </Flex>
       <ModalSection>Price</ModalSection>
       <Price value={0} />
