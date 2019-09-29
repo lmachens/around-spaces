@@ -26,9 +26,6 @@ export default function Home({ history, location, toggleTheme }) {
     distance: params.get("distance") || "",
     rating: params.get("rating") || ""
   });
-  React.useEffect(() => {
-    postAnalytics({ selectedFilters: filters, time: Date.now() });
-  }, [filters]);
 
   React.useEffect(() => {
     postAnalytics({
