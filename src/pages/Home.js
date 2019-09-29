@@ -30,17 +30,31 @@ export default function Home({ history, location, toggleTheme }) {
     postAnalytics({ selectedFilters: filters, time: Date.now() });
   }, [filters]);
 
+  React.useEffect(() => {
+    postAnalytics({
+      selectedFilters: filters,
+      time: Date.now()
+    });
+  }, [location.search]);
+
+  React.useEffect(() => {
+    const newParams = new URLSearchParams();
+    Object.entries(filters).forEach(([key, value]) => {
+      if (value) {
+        newParams.append(key, value);
+      }
+    });
+    history.push(`${location.pathname}?${newParams.toString()}`);
+  }, [filters]);
+
   function handleFilterChange(name, value) {
     const newFilters = { ...filters };
-    params.delete(name);
     if (value) {
       newFilters[name] = value;
-      params.append(name, value);
     } else {
       delete newFilters[name];
     }
     setFilters(newFilters);
-    history.push(`${location.pathname}?${params.toString()}`);
   }
 
   return (
