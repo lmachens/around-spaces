@@ -55,7 +55,11 @@ export default function New() {
       <ModalSection>Price</ModalSection>
       <Price value={rating} onClick={() => console.log("Hallihallöchen")} />
       <ModalSection>Rating</ModalSection>
-      <QualityRating value="1" rating={0} />
+      <QualityRating
+        onClick={() => console.log("nihau")}
+        value="1"
+        rating={0}
+      />
     </Modal>
   );
 }

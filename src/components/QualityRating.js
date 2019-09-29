@@ -8,14 +8,14 @@ const QualityRatingButtonStyled = styled(QualityRatingButton)`
   margin: 4px;
 `;
 
-export default function QualityRating({ rating }) {
+export default function QualityRating({ rating, onClick }) {
   return (
     <Flex>
-      <QualityRatingButtonStyled active={rating >= 1} />
-      <QualityRatingButtonStyled active={rating >= 2} />
-      <QualityRatingButtonStyled active={rating >= 3} />
-      <QualityRatingButtonStyled active={rating >= 4} />
-      <QualityRatingButtonStyled active={rating >= 5} />
+      <QualityRatingButtonStyled onClick={onClick} active={rating >= 1} />
+      <QualityRatingButtonStyled onClick={onClick} active={rating >= 2} />
+      <QualityRatingButtonStyled onClick={onClick} active={rating >= 3} />
+      <QualityRatingButtonStyled onClick={onClick} active={rating >= 4} />
+      <QualityRatingButtonStyled onClick={onClick} active={rating >= 5} />
     </Flex>
   );
 }
