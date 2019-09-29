@@ -59,7 +59,11 @@ export default function New() {
       <ModalSection>Categories</ModalSection>
       <Flex>
         {getCategoryOptions().map(option => (
-          <Badge onClick={() => handleCuisineClick(option)} key={option}>
+          <Badge
+            onClick={() => handleCuisineClick(option)}
+            key={option}
+            active={active}
+          >
             {option}
           </Badge>
         ))}

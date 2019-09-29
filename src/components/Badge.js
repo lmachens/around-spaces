@@ -19,9 +19,9 @@ const BadgeDiv = styled.span`
   margin: 5px;
 `;
 
-export default function Badge({ children, onClick }) {
+export default function Badge({ children, onClick, active }) {
   return (
-    <BadgeDiv onClick={() => onClick} active={ctive}>
+    <BadgeDiv onClick={() => onClick} active={active}>
       {children}
     </BadgeDiv>
   );
