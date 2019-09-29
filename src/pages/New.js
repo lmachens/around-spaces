@@ -36,13 +36,13 @@ export default function New() {
   const [title, setTitle] = useState("");
   const [cuisines, setCuisines] = useState([]);
   function handleCuisineClick(newCuisine) {
-    const cuisines = [...cuisines];
-    if (cuisines.includes(newCuisine)) {
+    const cuisinesArr = [...cuisines];
+    if (cuisinesArr.includes(newCuisine)) {
       cuisines.splice(cuisines.indexOf(newCuisine), 1);
     } else {
       cuisines.push(newCuisine);
     }
-
+    console.log(cuisines);
     setCuisines(cuisines);
   }
 
@@ -62,7 +62,7 @@ export default function New() {
           <Badge
             onClick={() => handleCuisineClick(option)}
             key={option}
-            active={active}
+            active={cuisines.includes(option)}
           >
             {option}
           </Badge>
