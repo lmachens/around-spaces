@@ -26,7 +26,7 @@ export default function New() {
       imgSrc:
         "https://static.lieferando.de/images/restaurants/de/OPROO0P/logo_465x320.png",
       title: title,
-      categories: cuisine,
+      categories: cuisines,
       distance: 6,
       rating: 3.1,
       description: "Eat italian"
@@ -34,12 +34,14 @@ export default function New() {
   }
 
   const [title, setTitle] = useState("");
-  const [cuisine, setCuisines] = useState([]);
-  function handleClickCuisine(newCuisine) {
-    const cuisines = [...cuisine];
-    cuisines.includes(newCuisine)
-      ? cuisines.splice(cuisines.indexOf(newCuisine), 1)
-      : cuisines.push(newCuisine);
+  const [cuisines, setCuisines] = useState([]);
+  function handleCuisineClick(newCuisine) {
+    const cuisines = [...cuisines];
+    if (cuisines.includes(newCuisine)) {
+      cuisines.splice(cuisines.indexOf(newCuisine), 1);
+    } else {
+      cuisines.push(newCuisine);
+    }
 
     setCuisines(cuisines);
   }
@@ -57,7 +59,7 @@ export default function New() {
       <ModalSection>Categories</ModalSection>
       <Flex>
         {getCategoryOptions().map(option => (
-          <Badge onClick={handleClickCuisine} key={option}>
+          <Badge onClick={() => handleCuisineClick(option)} key={option}>
             {option}
           </Badge>
         ))}

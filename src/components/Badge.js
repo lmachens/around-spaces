@@ -20,19 +20,8 @@ const BadgeDiv = styled.span`
 `;
 
 export default function Badge({ children, onClick }) {
-  const [isActive, toggleActivity] = React.useState(false);
-
-  function toggle() {
-    isActive ? toggleActivity(false) : toggleActivity(true);
-  }
   return (
-    <BadgeDiv
-      onClick={() => {
-        onClick(children);
-        toggle();
-      }}
-      active={isActive}
-    >
+    <BadgeDiv onClick={() => onClick} active={ctive}>
       {children}
     </BadgeDiv>
   );
