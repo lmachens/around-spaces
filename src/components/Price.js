@@ -13,12 +13,25 @@ const EuroIcon = styled(Euro)`
 export default function Price({ value }) {
   return (
     <Flex>
-      <EuroIcon active={value > 0} />
-      <EuroIcon active={value > 1} />
-      <EuroIcon active={value > 2} />
+      <EuroIcon
+        value={2}
+        kackpopel={event => console.log(event.target)}
+        active={value > 0}
+      />
+      <EuroIcon
+        value={2}
+        kackpopel={() => console.log("Hallo2")}
+        active={value > 1}
+      />
+      <EuroIcon
+        value={3}
+        kackpopel={() => console.log("Hallo3")}
+        active={value > 2}
+      />
     </Flex>
   );
 }
+
 Price.propTypes = {
   value: PropTypes.number.isRequired
 };

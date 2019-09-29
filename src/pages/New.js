@@ -52,9 +52,9 @@ export default function New() {
         ))}
       </Flex>
       <ModalSection>Price</ModalSection>
-      <Price value={0} />
+      <Price value={1} />
       <ModalSection>Rating</ModalSection>
-      <QualityRating rating={0} />
+      <QualityRating value="2" rating={0} />
     </Modal>
   );
 }
