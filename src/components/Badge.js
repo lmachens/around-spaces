@@ -21,13 +21,7 @@ const BadgeDiv = styled.span`
 
 export default function Badge({ children, onClick, active }) {
   return (
-    <BadgeDiv
-      onClick={() => {
-        onClick();
-        console.log(active);
-      }}
-      active={active}
-    >
+    <BadgeDiv onClick={onClick} active={active}>
       {children}
     </BadgeDiv>
   );
