@@ -28,7 +28,7 @@ export default function New() {
       title: title,
       categories: ["pizza", "salad", "pasta"],
       distance: 6,
-      rating: 3.1,
+      rating: qualityRating,
       description: "Eat italian"
     });
   }
