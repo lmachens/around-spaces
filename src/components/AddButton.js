@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Add from "../icons/Add";
-// import PropTypes from "prop-types";
 
 const ModalButton = styled.button`
   background: ${props => props.theme.background};
@@ -31,10 +30,10 @@ const AddIcon = styled(Add)`
   margin: auto;
 `;
 
-export default function AddButton() {
+export default function AddButton({ onClick }) {
   return (
     <ModalButton>
-      <InnerButton>
+      <InnerButton onClick={onClick}>
         <AddIcon />
       </InnerButton>
     </ModalButton>
