@@ -34,6 +34,7 @@ export default function New() {
   }
 
   const [title, setTitle] = useState("");
+  const [priceRating, setPriceRating] = useState("");
 
   return (
     <Modal hideBackdrop onAccept={handleAccept}>
@@ -52,9 +53,9 @@ export default function New() {
         ))}
       </Flex>
       <ModalSection>Price</ModalSection>
-      <Price value={2} />
+      <Price value={priceRating} onClick={() => setPriceRating("2")} />
       <ModalSection>Rating</ModalSection>
-      <QualityRating rating={0} />
+      <QualityRating value="1" rating={0} />
     </Modal>
   );
 }
