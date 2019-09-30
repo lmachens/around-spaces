@@ -34,7 +34,10 @@ export default function New() {
   }
 
   const [title, setTitle] = useState("");
-  const [rating, setRating] = useState("1");
+  const [priceRating, setPriceRating] = useState("");
+  function handleChildClick(value) {
+    setPriceRating(value);
+  }
 
   return (
     <Modal hideBackdrop onAccept={handleAccept}>
@@ -53,9 +56,10 @@ export default function New() {
         ))}
       </Flex>
       <ModalSection>Price</ModalSection>
-      <Price value={rating} onClick={() => console.log("Hallihallöchen")} />
+      <Price value={priceRating} onClick={() => console.log("Hallihallöchen")} />
       <ModalSection>Rating</ModalSection>
       <QualityRating
+        {["1", "2", "3"].map((value)=> )}
         onClick={() => console.log("nihau")}
         value="1"
         rating={0}

@@ -8,7 +8,10 @@ const QualityRatingButtonStyled = styled(QualityRatingButton)`
   margin: 4px;
 `;
 
-export default function QualityRating({ rating, onClick }) {
+export default function QualityRating({ rating, onClick, onChildClick }) {
+  function handleClick(event) {
+    onChildClick(event.target.name);
+  }
   return (
     <Flex>
       <QualityRatingButtonStyled onClick={onClick} active={rating >= 1} />
