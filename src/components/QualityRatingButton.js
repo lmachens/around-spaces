@@ -13,10 +13,10 @@ const RatingButton = styled.button`
   background: none;
 `;
 
-export default function QualityRatingButton({ active, className }) {
+export default function QualityRatingButton({ active, className, onClick }) {
   return (
     <RatingButton active={active} className={className}>
-      <Favorite />
+      <Favorite onClick={onClick} />
     </RatingButton>
   );
 }
