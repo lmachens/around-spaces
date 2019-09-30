@@ -34,6 +34,7 @@ export default function New() {
   }
 
   const [title, setTitle] = useState("");
+
   const [priceRating, setPriceRating] = useState("0");
   const [qualityRating, setQualityRating] = useState("0");
 
@@ -54,7 +55,7 @@ export default function New() {
         ))}
       </Flex>
       <ModalSection>Price</ModalSection>
-      <Price value={Number(priceRating)} onClick={setPriceRating} />
+      <Price value={Number(priceRating)} onClick={() => setPriceRating("2")} />
       <ModalSection>Rating</ModalSection>
       <QualityRating
         rating={Number(qualityRating)}
