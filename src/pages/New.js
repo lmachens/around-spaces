@@ -55,7 +55,7 @@ export default function New() {
         ))}
       </Flex>
       <ModalSection>Price</ModalSection>
-      <Price value={Number(priceRating)} onClick={() => setPriceRating("2")} />
+      <Price value={Number(priceRating)} onClick={setPriceRating} />
       <ModalSection>Rating</ModalSection>
       <QualityRating
         rating={Number(qualityRating)}
