@@ -34,6 +34,7 @@ export default function New() {
   }
 
   const [title, setTitle] = useState("");
+  const [priceRating, setPriceRating] = useState("0");
   const [cuisines, setCuisines] = useState([]);
   function handleCuisinesClick(newCuisine) {
     const cuisinesArr = [...cuisines];
@@ -71,7 +72,7 @@ export default function New() {
         })}
       </Flex>
       <ModalSection>Price</ModalSection>
-      <Price value={0} />
+      <Price value={Number(priceRating)} onClick={setPriceRating} />
       <ModalSection>Rating</ModalSection>
       <QualityRating rating={0} />
     </Modal>
