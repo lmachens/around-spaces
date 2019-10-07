@@ -1,38 +1,32 @@
 import React from "react";
-import styled from "styled-components";
-
-const Dropdown = styled.select`
-  border-style: solid;
-  border-width: 2px;
-  border-color: ${props =>
-    props.value ? props.theme.highlight : props.theme.secondary};
-  border-radius: 5px;
-  color: ${props => props.theme.text};
-  background: ${props => props.theme.secondary};
-  text-align: center;
-  box-shadow: 0 5px 10px ${props => props.theme.shadow};
-  &:focus {
-    outline: none;
-  }
-`;
+import Badge from "./Badge";
+import Flex from "./Flex";
 
 function Filter({ onChange, filter, selectedValue }) {
+  function handleOptionClick(option) {
+    if (selectedValue !== option) {
+      onChange(filter.name, option);
+    } else {
+      onChange(filter.name, null);
+    }
+  }
   return (
-    <Dropdown
-      onChange={event => {
-        onChange(filter.name, event.target.value);
-      }}
-      value={selectedValue}
-    >
-      <option value="">Select {filter.name}</option>
-      {filter.options.map(option => {
-        return (
-          <option key={option} value={option}>
-            {option}
-          </option>
-        );
-      })}
-    </Dropdown>
+    <>
+      <h3>{filter.title}</h3>
+      <Flex>
+        {filter.options.map(option => {
+          return (
+            <Badge
+              key={option}
+              onClick={() => handleOptionClick(option)}
+              active={selectedValue === option}
+            >
+              {option}
+            </Badge>
+          );
+        })}
+      </Flex>
+    </>
   );
 }
 

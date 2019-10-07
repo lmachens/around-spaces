@@ -20,8 +20,12 @@ const BadgeDiv = styled.span`
   color: #fff;
 `;
 
-export default function Badge({ active, children }) {
-  return <BadgeDiv active={active}>{children}</BadgeDiv>;
+export default function Badge({ children, onClick, active }) {
+  return (
+    <BadgeDiv onClick={onClick} active={active}>
+      {children}
+    </BadgeDiv>
+  );
 }
 
 Badge.propTypes = {
