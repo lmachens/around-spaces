@@ -17,7 +17,6 @@ const BadgeDiv = styled.span`
           color: rgb(84, 127, 179);
         `}
   margin: 5px;
-  color: #fff;
 `;
 
 export default function Badge({ children, onClick, active }) {
