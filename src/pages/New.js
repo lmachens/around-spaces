@@ -34,7 +34,7 @@ export default function New() {
   }
 
   const [title, setTitle] = useState("");
-  const [qualityRating, setQualityRating] = useState("0");
+  const [qualityRating, setQualityRating] = useState(0);
   const [cuisines, setCuisines] = useState([]);
   function handleCuisinesClick(newCuisine) {
     const cuisinesArr = [...cuisines];
@@ -74,10 +74,7 @@ export default function New() {
       <ModalSection>Price</ModalSection>
       <Price value={0} />
       <ModalSection>Rating</ModalSection>
-      <QualityRating
-        rating={Number(qualityRating)}
-        onClick={setQualityRating}
-      />
+      <QualityRating rating={qualityRating} onClick={setQualityRating} />
     </Modal>
   );
 }
