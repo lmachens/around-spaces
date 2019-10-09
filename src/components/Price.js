@@ -10,15 +10,16 @@ const EuroIcon = styled(Euro)`
   height: 24px;
 `;
 
-export default function Price({ value }) {
+export default function Price({ value, onClick }) {
   return (
     <Flex>
-      <EuroIcon active={value > 0} />
-      <EuroIcon active={value > 1} />
-      <EuroIcon active={value > 2} />
+      <EuroIcon onClick={() => onClick(1)} active={value > 0} />
+      <EuroIcon onClick={() => onClick(2)} active={value > 1} />
+      <EuroIcon onClick={() => onClick(3)} active={value > 2} />
     </Flex>
   );
 }
+
 Price.propTypes = {
   value: PropTypes.number.isRequired
 };
