@@ -1,6 +1,5 @@
 import React from "react";
 import Restaurant from "./Restaurant";
-import { getRestaurantsByFilters } from "../api/restaurants";
 import styled from "styled-components";
 
 const List = styled.section`
@@ -12,15 +11,7 @@ const List = styled.section`
   background: transparent;
 `;
 
-function RestaurantList({ selectedFilters }) {
-  const [filteredRestaurants, setFilteredRestaurants] = React.useState([]);
-
-  React.useEffect(() => {
-    getRestaurantsByFilters(selectedFilters).then(newFilteredRestaurants => {
-      setFilteredRestaurants(newFilteredRestaurants);
-    });
-  }, [selectedFilters]);
-
+function RestaurantList({ filteredRestaurants }) {
   return (
     <List>
       {filteredRestaurants.map((restaurant, index) => {
