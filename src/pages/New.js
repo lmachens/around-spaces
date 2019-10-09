@@ -29,12 +29,18 @@ export default function New() {
       categories: cuisines,
       distance: 6,
       rating: qualityRating,
+      priceRating: priceRating,
       description: "Eat italian"
     });
   }
 
   const [title, setTitle] = useState("");
+<<<<<<< HEAD
   const [qualityRating, setQualityRating] = useState(0);
+=======
+  const [qualityRating, setQualityRating] = useState("0");
+  const [priceRating, setPriceRating] = useState(0);
+>>>>>>> 255f604a48417986bc443da0a558ff4a14c91ec4
   const [cuisines, setCuisines] = useState([]);
   function handleCuisinesClick(newCuisine) {
     const cuisinesArr = [...cuisines];
@@ -72,7 +78,7 @@ export default function New() {
         })}
       </Flex>
       <ModalSection>Price</ModalSection>
-      <Price value={0} />
+      <Price value={priceRating} onClick={setPriceRating} />
       <ModalSection>Rating</ModalSection>
       <QualityRating rating={qualityRating} onClick={setQualityRating} />
     </Modal>
