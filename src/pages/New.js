@@ -36,6 +36,7 @@ export default function New() {
 
   const [title, setTitle] = useState("");
   const [qualityRating, setQualityRating] = useState(0);
+  const [priceRating, setPriceRating] = useState(0);
   const [cuisines, setCuisines] = useState([]);
   function handleCuisinesClick(newCuisine) {
     const cuisinesArr = [...cuisines];

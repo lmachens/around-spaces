@@ -9,28 +9,16 @@ const QualityRatingButtonStyled = styled(QualityRatingButton)`
 `;
 
 export default function QualityRating({ rating, onClick }) {
+  const ratingArray = [1, 2, 3, 4, 5];
   return (
     <Flex>
-      <QualityRatingButtonStyled
-        onClick={() => onClick(1)}
-        active={rating >= 1}
-      />
-      <QualityRatingButtonStyled
-        onClick={() => onClick(2)}
-        active={rating >= 2}
-      />
-      <QualityRatingButtonStyled
-        onClick={() => onClick(3)}
-        active={rating >= 3}
-      />
-      <QualityRatingButtonStyled
-        onClick={() => onClick(4)}
-        active={rating >= 4}
-      />
-      <QualityRatingButtonStyled
-        onClick={() => onClick(5)}
-        active={rating >= 5}
-      />
+      {ratingArray.map(number => (
+        <QualityRatingButtonStyled
+          key={number}
+          onClick={() => onClick(number)}
+          active={rating >= number}
+        />
+      ))}
     </Flex>
   );
 }

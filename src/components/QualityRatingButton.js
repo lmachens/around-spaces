@@ -15,8 +15,8 @@ const RatingButton = styled.button`
 
 export default function QualityRatingButton({ active, className, onClick }) {
   return (
-    <RatingButton active={active} className={className}>
-      <Favorite onClick={onClick} />
+    <RatingButton onClick={onClick} active={active} className={className}>
+      <Favorite />
     </RatingButton>
   );
 }
