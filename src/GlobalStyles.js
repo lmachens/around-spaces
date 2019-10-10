@@ -11,6 +11,8 @@ body {
   font-size: 16px;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+  background: ${props => props.theme.background}
+  color: ${props => props.theme.contrastText};
 }
 `;
 

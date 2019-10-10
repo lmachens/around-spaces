@@ -4,6 +4,8 @@ import RestaurantList from "../components/RestaurantList";
 import Title from "../components/Title";
 import styled from "styled-components";
 import { postAnalytics } from "../api/analytics";
+import { getRestaurantsByFilters } from "../api/restaurants";
+import Loading from "../components/Loading";
 
 const Main = styled.main`
   padding: 10px;
@@ -26,6 +28,15 @@ export default function Home({ history, location, toggleTheme }) {
     distance: params.get("distance") || "",
     rating: params.get("rating") || ""
   });
+  const [filteredRestaurants, setFilteredRestaurants] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    getRestaurantsByFilters(filters).then(newFilteredRestaurants => {
+      setFilteredRestaurants(newFilteredRestaurants);
+      setLoading(false);
+    });
+  }, [filters]);
 
   React.useEffect(() => {
     postAnalytics({
@@ -62,7 +73,10 @@ export default function Home({ history, location, toggleTheme }) {
         onFilterChange={handleFilterChange}
       />
       <Main>
-        <RestaurantList selectedFilters={filters} />
+        {loading && <Loading>Load restaurants</Loading>}
+        {!loading && (
+          <RestaurantList filteredRestaurants={filteredRestaurants} />
+        )}
       </Main>
     </>
   );
