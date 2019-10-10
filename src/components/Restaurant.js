@@ -18,6 +18,7 @@ const Card = styled.article`
 
 const CardImgContainer = styled.div`
   width: 33%;
+  max-width: 240px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   overflow: hidden;

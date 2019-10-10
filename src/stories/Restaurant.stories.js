@@ -7,7 +7,7 @@ export default {
 
 const restaurant = {
   imgSrc:
-    "https://static.lieferando.de/images/chains/de/bento_box/logo_465x320.png",
+    "https://images.unsplash.com/photo-1562158147-f8d6fbcd76f8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80",
   title: "Bento Box",
   categories: ["japanese", "sushi"],
   distance: 1,
@@ -15,8 +15,4 @@ const restaurant = {
   description: "Long waiting time"
 };
 
-export const Card = () => (
-  <Restaurant key={restaurant.title} odd={!!(1 % 2)} restaurant={restaurant}>
-    Türkisch
-  </Restaurant>
-);
+export const Card = () => <Restaurant odd={false} restaurant={restaurant} />;

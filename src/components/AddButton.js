@@ -2,26 +2,27 @@ import React from "react";
 import styled from "styled-components";
 import Add from "../icons/Add";
 
-const ModalButton = styled.button`
+const Button = styled.button`
   background: ${props => props.theme.background};
   border-radius: 50%;
   outline: none;
   border: none;
-  padding: 10px;
+  padding: 0px;
   cursor: pointer;
-  width: 60px;
-  height: 60px;
+  width: 61px;
+  height: 61px;
   fill: ${props => props.theme.contrastText};
   display: flex;
+  justify-content: center;
 `;
 
-const InnerButton = styled.div`
+const InnerCircle = styled.div`
   background: ${props => props.theme.highlight};
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  margin-left: 1px;
   display: flex;
-  margin: auto;
 `;
 
 const AddIcon = styled(Add)`
@@ -32,10 +33,10 @@ const AddIcon = styled(Add)`
 
 export default function AddButton({ onClick }) {
   return (
-    <ModalButton>
-      <InnerButton onClick={onClick}>
+    <Button onClick={onClick}>
+      <InnerCircle>
         <AddIcon />
-      </InnerButton>
-    </ModalButton>
+      </InnerCircle>
+    </Button>
   );
 }
