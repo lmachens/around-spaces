@@ -1,20 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import DarkmodeToggleButton from "./DarkmodeToggleButton";
+import Add from "../icons/Add";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const Header = styled.header`
   z-index: 10;
-  flex-shrink: 0;
   height: 40px;
-  width: 100%;
   color: #fff;
   background: ${props => props.theme.main};
-  text-align: center;
   box-shadow: 0 5px 5px ${props => props.theme.shadow};
-  position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 10px;
 `;
 
 const Headline = styled.h1`
@@ -22,13 +22,27 @@ const Headline = styled.h1`
   font-size: 1.6em;
 `;
 
-function Title({ toggleTheme }) {
+const AddLink = styled(Link)`
+  height: 30px;
+`;
+
+const AddButton = styled(Add)`
+  height: 30px;
+  fill: #fff;
+`;
+
+export default function Title({ onToggleTheme }) {
   return (
     <Header>
+      <AddLink to="/new">
+        <AddButton />
+      </AddLink>
       <Headline>around spaces</Headline>
-      <DarkmodeToggleButton toggleTheme={toggleTheme} />
+      <DarkmodeToggleButton onToggleTheme={onToggleTheme} />
     </Header>
   );
 }
 
-export default Title;
+Title.propTypes = {
+  onToggleTheme: PropTypes.func
+};

@@ -20,7 +20,7 @@ const AddCircleIcon = styled(Add)`
   border-radius: 50%;
 `;
 
-export default function New() {
+export default function New({ history }) {
   function handleAccept() {
     postRestaurant({
       imgSrc:
@@ -31,7 +31,11 @@ export default function New() {
       rating: qualityRating,
       priceRating: priceRating,
       description: "Eat italian"
-    });
+    }).then(redirectHome);
+  }
+
+  function redirectHome() {
+    history.push("/");
   }
 
   const [title, setTitle] = useState("");
@@ -50,7 +54,7 @@ export default function New() {
   }
 
   return (
-    <Modal hideBackdrop onAccept={handleAccept}>
+    <Modal hideBackdrop onAccept={handleAccept} onClose={redirectHome}>
       <AddCircleIcon />
       <ModalTitle>Add Restaurant</ModalTitle>
       <ModalSection>Name</ModalSection>

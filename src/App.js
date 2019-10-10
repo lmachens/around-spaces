@@ -31,7 +31,7 @@ function App() {
             path="/"
             exact
             component={props => (
-              <Home toggleTheme={handleToggleTheme} {...props} />
+              <Home onToggleTheme={handleToggleTheme} {...props} />
             )}
           />
           <Route path="/new" exact component={New} />

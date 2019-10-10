@@ -21,7 +21,7 @@ const StyledFilterBar = styled(FilterBar)`
   padding: 20px 10px;
 `;
 
-export default function Home({ history, location, toggleTheme }) {
+export default function Home({ history, location, onToggleTheme }) {
   const params = new URLSearchParams(location.search);
   const [filters, setFilters] = React.useState({
     category: params.get("category") || "",
@@ -67,7 +67,7 @@ export default function Home({ history, location, toggleTheme }) {
 
   return (
     <>
-      <Title toggleTheme={toggleTheme} />
+      <Title onToggleTheme={onToggleTheme} />
       <StyledFilterBar
         selectedFilters={filters}
         onFilterChange={handleFilterChange}
