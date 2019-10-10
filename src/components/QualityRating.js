@@ -8,14 +8,17 @@ const QualityRatingButtonStyled = styled(QualityRatingButton)`
   margin: 4px;
 `;
 
-export default function QualityRating({ rating }) {
+export default function QualityRating({ rating, onClick }) {
+  const ratingArray = [1, 2, 3, 4, 5];
   return (
     <Flex>
-      <QualityRatingButtonStyled active={rating >= 1} />
-      <QualityRatingButtonStyled active={rating >= 2} />
-      <QualityRatingButtonStyled active={rating >= 3} />
-      <QualityRatingButtonStyled active={rating >= 4} />
-      <QualityRatingButtonStyled active={rating >= 5} />
+      {ratingArray.map(number => (
+        <QualityRatingButtonStyled
+          key={number}
+          onClick={() => onClick(number)}
+          active={rating >= number}
+        />
+      ))}
     </Flex>
   );
 }

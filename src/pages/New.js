@@ -28,13 +28,14 @@ export default function New() {
       title: title,
       categories: cuisines,
       distance: 6,
-      rating: 3.1,
+      rating: qualityRating,
       priceRating: priceRating,
       description: "Eat italian"
     });
   }
 
   const [title, setTitle] = useState("");
+  const [qualityRating, setQualityRating] = useState(0);
   const [priceRating, setPriceRating] = useState(0);
   const [cuisines, setCuisines] = useState([]);
   function handleCuisinesClick(newCuisine) {
@@ -75,7 +76,7 @@ export default function New() {
       <ModalSection>Price</ModalSection>
       <Price value={priceRating} onClick={setPriceRating} />
       <ModalSection>Rating</ModalSection>
-      <QualityRating rating={0} />
+      <QualityRating rating={qualityRating} onClick={setQualityRating} />
     </Modal>
   );
 }
