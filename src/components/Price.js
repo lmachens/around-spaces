@@ -10,7 +10,7 @@ const EuroIcon = styled(Euro)`
   width: 24px;
 `;
 
-export default function PriceSelect({ value, className }) {
+export default function Price({ value, className }) {
   return (
     <Flex className={className}>
       {[1, 2, 3].map(price => (
@@ -20,6 +20,6 @@ export default function PriceSelect({ value, className }) {
   );
 }
 
-PriceSelect.propTypes = {
+Price.propTypes = {
   value: PropTypes.number
 };
