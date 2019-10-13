@@ -1,7 +1,10 @@
 import React from "react";
-import QualityRating from "../components/QualityRating";
+import QualityRatingSelect from "../components/QualityRatingSelect";
 
-export default { title: "Quality Rating" };
+export default { title: "Quality Rating Select" };
 
-export const Low = () => <QualityRating rating={2} />;
-export const High = () => <QualityRating rating={5} />;
+export const Change = () => {
+  const [rating, setRating] = React.useState(1);
+
+  return <QualityRatingSelect value={rating} onChange={setRating} />;
+};

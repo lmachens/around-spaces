@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import TextInput from "../components/TextInput";
 import Badge from "../components/Badge";
-import Price from "../components/Price";
-import QualityRating from "../components/QualityRating";
+import PriceSelect from "../components/PriceSelect";
+import QualityRatingSelect from "../components/QualityRatingSelect";
 import Modal from "../components/Modal";
 import ModalTitle from "../components/ModalTitle";
 import ModalSection from "../components/ModalSection";
@@ -21,6 +21,11 @@ const AddCircleIcon = styled(Add)`
 `;
 
 export default function New({ history }) {
+  const [title, setTitle] = useState("");
+  const [qualityRating, setQualityRating] = useState(1);
+  const [priceRating, setPriceRating] = useState(1);
+  const [cuisines, setCuisines] = useState([]);
+
   function handleAccept() {
     postRestaurant({
       imgSrc:
@@ -38,10 +43,6 @@ export default function New({ history }) {
     history.push("/");
   }
 
-  const [title, setTitle] = useState("");
-  const [qualityRating, setQualityRating] = useState(0);
-  const [priceRating, setPriceRating] = useState(0);
-  const [cuisines, setCuisines] = useState([]);
   function handleCuisinesClick(newCuisine) {
     const cuisinesArr = [...cuisines];
     if (cuisinesArr.includes(newCuisine)) {
@@ -78,9 +79,9 @@ export default function New({ history }) {
         })}
       </Flex>
       <ModalSection>Price</ModalSection>
-      <Price value={priceRating} onClick={setPriceRating} />
+      <PriceSelect value={priceRating} onChange={setPriceRating} />
       <ModalSection>Rating</ModalSection>
-      <QualityRating rating={qualityRating} onClick={setQualityRating} />
+      <QualityRatingSelect value={qualityRating} onChange={setQualityRating} />
     </Modal>
   );
 }

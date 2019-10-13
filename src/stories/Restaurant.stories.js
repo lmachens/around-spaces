@@ -12,6 +12,7 @@ const restaurant = {
   categories: ["japanese", "sushi"],
   distance: 1,
   rating: 3,
+  price: 2,
   description: "Long waiting time"
 };
 
