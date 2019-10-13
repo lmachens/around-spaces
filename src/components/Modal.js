@@ -83,5 +83,6 @@ Modal.propTypes = {
   show: PropTypes.bool,
   hideBackdrop: PropTypes.bool,
   onShow: PropTypes.func,
-  onAccept: PropTypes.func
+  onAccept: PropTypes.func,
+  onClose: PropTypes.func
 };
