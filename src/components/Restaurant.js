@@ -75,10 +75,6 @@ const RatingIcon = styled(Favorite)`
   fill: ${props => props.theme.main};
 `;
 
-const DetailsPrice = styled(Price)`
-  width: 33%;
-`;
-
 function Restaurant(props) {
   return (
     <Card odd={props.odd}>
@@ -98,7 +94,7 @@ function Restaurant(props) {
             <RatingIcon />
             {props.restaurant.rating.toFixed(1)}
           </DetailsItem>
-          <DetailsPrice value={props.restaurant.price} />
+          <Price value={props.restaurant.price} />
         </DetailsContainer>
       </InfoContainer>
     </Card>
